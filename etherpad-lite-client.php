@@ -104,346 +104,460 @@ class EtherpadLiteClient {
     }
   }
 
-    // createGroup  
+    // createGroup
   public function createGroup(){
-    return $this->post("createGroup", array(
-          ));
+    $params = array();
+
+
+    return $this->post("createGroup", $params)
   }
 
-  // createGroupIfNotExistsFor  
+  // createGroupIfNotExistsFor
   public function createGroupIfNotExistsFor($groupMapper){
-    return $this->post("createGroupIfNotExistsFor", array(
-              "groupMapper" => $groupMapper,
-          ));
+    $params = array();
+
+    $params['groupMapper'] = $groupMapper;
+
+    return $this->post("createGroupIfNotExistsFor", $params)
   }
 
-  // deleteGroup  
+  // deleteGroup
   public function deleteGroup($groupID){
-    return $this->post("deleteGroup", array(
-              "groupID" => $groupID,
-          ));
+    $params = array();
+
+    $params['groupID'] = $groupID;
+
+    return $this->post("deleteGroup", $params)
   }
 
-  // listPads  
+  // listPads
   public function listPads($groupID){
-    return $this->get("listPads", array(
-              "groupID" => $groupID,
-          ));
+    $params = array();
+
+    $params['groupID'] = $groupID;
+
+    return $this->get("listPads", $params)
   }
 
-  // listAllPads  
+  // listAllPads
   public function listAllPads(){
-    return $this->get("listAllPads", array(
-          ));
+    $params = array();
+
+
+    return $this->get("listAllPads", $params)
   }
 
-  // createDiffHTML  
+  // createDiffHTML
   public function createDiffHTML($padID, $startRev, $endRev){
-    return $this->post("createDiffHTML", array(
-              "padID" => $padID,
-              "startRev" => $startRev,
-              "endRev" => $endRev,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['startRev'] = $startRev;
+    $params['endRev'] = $endRev;
+
+    return $this->post("createDiffHTML", $params)
   }
 
-  // createPad  
-  public function createPad($padID, $text){
-    return $this->post("createPad", array(
-              "padID" => $padID,
-              "text" => $text,
-          ));
+  // createPad
+  public function createPad($padID, $text = null){
+    $params = array();
+
+    $params['padID'] = $padID;
+    if (isset($text)){
+      $params['text'] = $text;
+    }
+
+    return $this->post("createPad", $params)
   }
 
-  // createGroupPad  
-  public function createGroupPad($groupID, $padName, $text){
-    return $this->post("createGroupPad", array(
-              "groupID" => $groupID,
-              "padName" => $padName,
-              "text" => $text,
-          ));
+  // createGroupPad
+  public function createGroupPad($groupID, $padName, $text = null){
+    $params = array();
+
+    $params['groupID'] = $groupID;
+    $params['padName'] = $padName;
+    if (isset($text)){
+      $params['text'] = $text;
+    }
+
+    return $this->post("createGroupPad", $params)
   }
 
-  // createAuthor  
-  public function createAuthor($name){
-    return $this->post("createAuthor", array(
-              "name" => $name,
-          ));
+  // createAuthor
+  public function createAuthor($name = null){
+    $params = array();
+
+    if (isset($name)){
+      $params['name'] = $name;
+    }
+
+    return $this->post("createAuthor", $params)
   }
 
-  // createAuthorIfNotExistsFor  
-  public function createAuthorIfNotExistsFor($authorMapper, $name){
-    return $this->post("createAuthorIfNotExistsFor", array(
-              "authorMapper" => $authorMapper,
-              "name" => $name,
-          ));
+  // createAuthorIfNotExistsFor
+  public function createAuthorIfNotExistsFor($authorMapper, $name = null){
+    $params = array();
+
+    $params['authorMapper'] = $authorMapper;
+    if (isset($name)){
+      $params['name'] = $name;
+    }
+
+    return $this->post("createAuthorIfNotExistsFor", $params)
   }
 
-  // listPadsOfAuthor  
+  // listPadsOfAuthor
   public function listPadsOfAuthor($authorID){
-    return $this->get("listPadsOfAuthor", array(
-              "authorID" => $authorID,
-          ));
+    $params = array();
+
+    $params['authorID'] = $authorID;
+
+    return $this->get("listPadsOfAuthor", $params)
   }
 
-  // createSession  
+  // createSession
   public function createSession($groupID, $authorID, $validUntil){
-    return $this->post("createSession", array(
-              "groupID" => $groupID,
-              "authorID" => $authorID,
-              "validUntil" => $validUntil,
-          ));
+    $params = array();
+
+    $params['groupID'] = $groupID;
+    $params['authorID'] = $authorID;
+    $params['validUntil'] = $validUntil;
+
+    return $this->post("createSession", $params)
   }
 
-  // deleteSession  
+  // deleteSession
   public function deleteSession($sessionID){
-    return $this->post("deleteSession", array(
-              "sessionID" => $sessionID,
-          ));
+    $params = array();
+
+    $params['sessionID'] = $sessionID;
+
+    return $this->post("deleteSession", $params)
   }
 
-  // getSessionInfo  
+  // getSessionInfo
   public function getSessionInfo($sessionID){
-    return $this->get("getSessionInfo", array(
-              "sessionID" => $sessionID,
-          ));
+    $params = array();
+
+    $params['sessionID'] = $sessionID;
+
+    return $this->get("getSessionInfo", $params)
   }
 
-  // listSessionsOfGroup  
+  // listSessionsOfGroup
   public function listSessionsOfGroup($groupID){
-    return $this->get("listSessionsOfGroup", array(
-              "groupID" => $groupID,
-          ));
+    $params = array();
+
+    $params['groupID'] = $groupID;
+
+    return $this->get("listSessionsOfGroup", $params)
   }
 
-  // listSessionsOfAuthor  
+  // listSessionsOfAuthor
   public function listSessionsOfAuthor($authorID){
-    return $this->get("listSessionsOfAuthor", array(
-              "authorID" => $authorID,
-          ));
+    $params = array();
+
+    $params['authorID'] = $authorID;
+
+    return $this->get("listSessionsOfAuthor", $params)
   }
 
-  // getText  
-  public function getText($padID, $rev){
-    return $this->get("getText", array(
-              "padID" => $padID,
-              "rev" => $rev,
-          ));
+  // getText
+  public function getText($padID, $rev = null){
+    $params = array();
+
+    $params['padID'] = $padID;
+    if (isset($rev)){
+      $params['rev'] = $rev;
+    }
+
+    return $this->get("getText", $params)
   }
 
-  // setText  
+  // setText
   public function setText($padID, $text){
-    return $this->post("setText", array(
-              "padID" => $padID,
-              "text" => $text,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['text'] = $text;
+
+    return $this->post("setText", $params)
   }
 
-  // getHTML  
-  public function getHTML($padID, $rev){
-    return $this->get("getHTML", array(
-              "padID" => $padID,
-              "rev" => $rev,
-          ));
+  // getHTML
+  public function getHTML($padID, $rev = null){
+    $params = array();
+
+    $params['padID'] = $padID;
+    if (isset($rev)){
+      $params['rev'] = $rev;
+    }
+
+    return $this->get("getHTML", $params)
   }
 
-  // setHTML  
+  // setHTML
   public function setHTML($padID, $html){
-    return $this->post("setHTML", array(
-              "padID" => $padID,
-              "html" => $html,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['html'] = $html;
+
+    return $this->post("setHTML", $params)
   }
 
-  // getAttributePool  
+  // getAttributePool
   public function getAttributePool($padID){
-    return $this->get("getAttributePool", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getAttributePool", $params)
   }
 
-  // getRevisionsCount  
+  // getRevisionsCount
   public function getRevisionsCount($padID){
-    return $this->get("getRevisionsCount", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getRevisionsCount", $params)
   }
 
-  // getSavedRevisionsCount  
+  // getSavedRevisionsCount
   public function getSavedRevisionsCount($padID){
-    return $this->get("getSavedRevisionsCount", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getSavedRevisionsCount", $params)
   }
 
-  // listSavedRevisions  
+  // listSavedRevisions
   public function listSavedRevisions($padID){
-    return $this->get("listSavedRevisions", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("listSavedRevisions", $params)
   }
 
-  // saveRevision  
+  // saveRevision
   public function saveRevision($padID, $rev){
-    return $this->post("saveRevision", array(
-              "padID" => $padID,
-              "rev" => $rev,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['rev'] = $rev;
+
+    return $this->post("saveRevision", $params)
   }
 
-  // getRevisionChangeset  
-  public function getRevisionChangeset($padID, $rev){
-    return $this->get("getRevisionChangeset", array(
-              "padID" => $padID,
-              "rev" => $rev,
-          ));
+  // getRevisionChangeset
+  public function getRevisionChangeset($padID, $rev = null){
+    $params = array();
+
+    $params['padID'] = $padID;
+    if (isset($rev)){
+      $params['rev'] = $rev;
+    }
+
+    return $this->get("getRevisionChangeset", $params)
   }
 
-  // getLastEdited  
+  // getLastEdited
   public function getLastEdited($padID){
-    return $this->get("getLastEdited", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getLastEdited", $params)
   }
 
-  // deletePad  
+  // deletePad
   public function deletePad($padID){
-    return $this->post("deletePad", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->post("deletePad", $params)
   }
 
-  // copyPad  
-  public function copyPad($sourceID, $destinationID, $force){
-    return $this->post("copyPad", array(
-              "sourceID" => $sourceID,
-              "destinationID" => $destinationID,
-              "force" => $force,
-          ));
+  // copyPad
+  public function copyPad($sourceID, $destinationID, $force = null){
+    $params = array();
+
+    $params['sourceID'] = $sourceID;
+    $params['destinationID'] = $destinationID;
+    if (isset($force)){
+      $params['force'] = $force;
+    }
+
+    return $this->post("copyPad", $params)
   }
 
-  // movePad  
-  public function movePad($sourceID, $destinationID, $force){
-    return $this->post("movePad", array(
-              "sourceID" => $sourceID,
-              "destinationID" => $destinationID,
-              "force" => $force,
-          ));
+  // movePad
+  public function movePad($sourceID, $destinationID, $force = null){
+    $params = array();
+
+    $params['sourceID'] = $sourceID;
+    $params['destinationID'] = $destinationID;
+    if (isset($force)){
+      $params['force'] = $force;
+    }
+
+    return $this->post("movePad", $params)
   }
 
-  // getReadOnlyID  
+  // getReadOnlyID
   public function getReadOnlyID($padID){
-    return $this->get("getReadOnlyID", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getReadOnlyID", $params)
   }
 
-  // getPadID  
+  // getPadID
   public function getPadID($roID){
-    return $this->get("getPadID", array(
-              "roID" => $roID,
-          ));
+    $params = array();
+
+    $params['roID'] = $roID;
+
+    return $this->get("getPadID", $params)
   }
 
-  // setPublicStatus  
+  // setPublicStatus
   public function setPublicStatus($padID, $publicStatus){
-    return $this->post("setPublicStatus", array(
-              "padID" => $padID,
-              "publicStatus" => $publicStatus,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['publicStatus'] = $publicStatus;
+
+    return $this->post("setPublicStatus", $params)
   }
 
-  // getPublicStatus  
+  // getPublicStatus
   public function getPublicStatus($padID){
-    return $this->get("getPublicStatus", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getPublicStatus", $params)
   }
 
-  // setPassword  
+  // setPassword
   public function setPassword($padID, $password){
-    return $this->post("setPassword", array(
-              "padID" => $padID,
-              "password" => $password,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['password'] = $password;
+
+    return $this->post("setPassword", $params)
   }
 
-  // isPasswordProtected  
+  // isPasswordProtected
   public function isPasswordProtected($padID){
-    return $this->get("isPasswordProtected", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("isPasswordProtected", $params)
   }
 
-  // listAuthorsOfPad  
+  // listAuthorsOfPad
   public function listAuthorsOfPad($padID){
-    return $this->get("listAuthorsOfPad", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("listAuthorsOfPad", $params)
   }
 
-  // padUsersCount  
+  // padUsersCount
   public function padUsersCount($padID){
-    return $this->get("padUsersCount", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("padUsersCount", $params)
   }
 
-  // getAuthorName  
+  // getAuthorName
   public function getAuthorName($authorID){
-    return $this->get("getAuthorName", array(
-              "authorID" => $authorID,
-          ));
+    $params = array();
+
+    $params['authorID'] = $authorID;
+
+    return $this->get("getAuthorName", $params)
   }
 
-  // padUsers  
+  // padUsers
   public function padUsers($padID){
-    return $this->get("padUsers", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("padUsers", $params)
   }
 
-  // sendClientsMessage  
+  // sendClientsMessage
   public function sendClientsMessage($padID, $msg){
-    return $this->post("sendClientsMessage", array(
-              "padID" => $padID,
-              "msg" => $msg,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['msg'] = $msg;
+
+    return $this->post("sendClientsMessage", $params)
   }
 
-  // listAllGroups  
+  // listAllGroups
   public function listAllGroups(){
-    return $this->get("listAllGroups", array(
-          ));
+    $params = array();
+
+
+    return $this->get("listAllGroups", $params)
   }
 
-  // checkToken  
+  // checkToken
   public function checkToken(){
-    return $this->post("checkToken", array(
-          ));
+    $params = array();
+
+
+    return $this->post("checkToken", $params)
   }
 
-  // getChatHistory  
-  public function getChatHistory($padID, $start, $end){
-    return $this->get("getChatHistory", array(
-              "padID" => $padID,
-              "start" => $start,
-              "end" => $end,
-          ));
+  // getChatHistory
+  public function getChatHistory($padID, $start = null, $end = null){
+    $params = array();
+
+    $params['padID'] = $padID;
+    if (isset($start)){
+      $params['start'] = $start;
+    }
+    if (isset($end)){
+      $params['end'] = $end;
+    }
+
+    return $this->get("getChatHistory", $params)
   }
 
-  // getChatHead  
+  // getChatHead
   public function getChatHead($padID){
-    return $this->get("getChatHead", array(
-              "padID" => $padID,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+
+    return $this->get("getChatHead", $params)
   }
 
-  // restoreRevision  
+  // restoreRevision
   public function restoreRevision($padID, $rev){
-    return $this->post("restoreRevision", array(
-              "padID" => $padID,
-              "rev" => $rev,
-          ));
+    $params = array();
+
+    $params['padID'] = $padID;
+    $params['rev'] = $rev;
+
+    return $this->post("restoreRevision", $params)
   }
 
 

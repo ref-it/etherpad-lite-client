@@ -7,14 +7,14 @@ Etherpad Lite is a collaborative editor provided by the Etherpad Foundation (htt
 You only need to include the 'etherpad-lite-client.php' file in your project. All other files
 in the project are for supporting the generation of the client.
 
-    ```php
-    <?php
-    include 'etherpad-lite-client.php';
-    $instance = new EtherpadLiteClient('EtherpadFTW', 'http://beta.etherpad.org/api');
-    $revisionCount = $instance->getRevisionsCount('testPad');
-    $revisionCount = $revisionCount->revisions;
-    echo "Pad has $revisionCount revisions";
-    ```
+```php
+<?php
+include 'etherpad-lite-client.php';
+$instance = new EtherpadLiteClient('EtherpadFTW', 'http://beta.etherpad.org/api');
+$revisionCount = $instance->getRevisionsCount('testPad');
+$revisionCount = $revisionCount->revisions;
+echo "Pad has $revisionCount revisions";
+```
 
 # License
 

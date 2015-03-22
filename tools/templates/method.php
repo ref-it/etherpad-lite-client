@@ -26,6 +26,6 @@ foreach ($args as $arg){
 }
 
 echo "\n";
-echo "    return \$this->{$httpMethod}(\"{$name}\", \$params)\n";
+echo "    return \$this->{$httpMethod}(\"{$name}\", \$params);\n";
 echo "  }\n\n";
 ?>

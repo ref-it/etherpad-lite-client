@@ -109,7 +109,7 @@ class EtherpadLiteClient {
     $params = array();
 
 
-    return $this->post("createGroup", $params)
+    return $this->post("createGroup", $params);
   }
 
   // createGroupIfNotExistsFor
@@ -118,7 +118,7 @@ class EtherpadLiteClient {
 
     $params['groupMapper'] = $groupMapper;
 
-    return $this->post("createGroupIfNotExistsFor", $params)
+    return $this->post("createGroupIfNotExistsFor", $params);
   }
 
   // deleteGroup
@@ -127,7 +127,7 @@ class EtherpadLiteClient {
 
     $params['groupID'] = $groupID;
 
-    return $this->post("deleteGroup", $params)
+    return $this->post("deleteGroup", $params);
   }
 
   // listPads
@@ -136,7 +136,7 @@ class EtherpadLiteClient {
 
     $params['groupID'] = $groupID;
 
-    return $this->get("listPads", $params)
+    return $this->get("listPads", $params);
   }
 
   // listAllPads
@@ -144,7 +144,7 @@ class EtherpadLiteClient {
     $params = array();
 
 
-    return $this->get("listAllPads", $params)
+    return $this->get("listAllPads", $params);
   }
 
   // createDiffHTML
@@ -155,7 +155,7 @@ class EtherpadLiteClient {
     $params['startRev'] = $startRev;
     $params['endRev'] = $endRev;
 
-    return $this->post("createDiffHTML", $params)
+    return $this->post("createDiffHTML", $params);
   }
 
   // createPad
@@ -167,7 +167,7 @@ class EtherpadLiteClient {
       $params['text'] = $text;
     }
 
-    return $this->post("createPad", $params)
+    return $this->post("createPad", $params);
   }
 
   // createGroupPad
@@ -180,7 +180,7 @@ class EtherpadLiteClient {
       $params['text'] = $text;
     }
 
-    return $this->post("createGroupPad", $params)
+    return $this->post("createGroupPad", $params);
   }
 
   // createAuthor
@@ -191,7 +191,7 @@ class EtherpadLiteClient {
       $params['name'] = $name;
     }
 
-    return $this->post("createAuthor", $params)
+    return $this->post("createAuthor", $params);
   }
 
   // createAuthorIfNotExistsFor
@@ -203,7 +203,7 @@ class EtherpadLiteClient {
       $params['name'] = $name;
     }
 
-    return $this->post("createAuthorIfNotExistsFor", $params)
+    return $this->post("createAuthorIfNotExistsFor", $params);
   }
 
   // listPadsOfAuthor
@@ -212,7 +212,7 @@ class EtherpadLiteClient {
 
     $params['authorID'] = $authorID;
 
-    return $this->get("listPadsOfAuthor", $params)
+    return $this->get("listPadsOfAuthor", $params);
   }
 
   // createSession
@@ -223,7 +223,7 @@ class EtherpadLiteClient {
     $params['authorID'] = $authorID;
     $params['validUntil'] = $validUntil;
 
-    return $this->post("createSession", $params)
+    return $this->post("createSession", $params);
   }
 
   // deleteSession
@@ -232,7 +232,7 @@ class EtherpadLiteClient {
 
     $params['sessionID'] = $sessionID;
 
-    return $this->post("deleteSession", $params)
+    return $this->post("deleteSession", $params);
   }
 
   // getSessionInfo
@@ -241,7 +241,7 @@ class EtherpadLiteClient {
 
     $params['sessionID'] = $sessionID;
 
-    return $this->get("getSessionInfo", $params)
+    return $this->get("getSessionInfo", $params);
   }
 
   // listSessionsOfGroup
@@ -250,7 +250,7 @@ class EtherpadLiteClient {
 
     $params['groupID'] = $groupID;
 
-    return $this->get("listSessionsOfGroup", $params)
+    return $this->get("listSessionsOfGroup", $params);
   }
 
   // listSessionsOfAuthor
@@ -259,7 +259,7 @@ class EtherpadLiteClient {
 
     $params['authorID'] = $authorID;
 
-    return $this->get("listSessionsOfAuthor", $params)
+    return $this->get("listSessionsOfAuthor", $params);
   }
 
   // getText
@@ -271,7 +271,7 @@ class EtherpadLiteClient {
       $params['rev'] = $rev;
     }
 
-    return $this->get("getText", $params)
+    return $this->get("getText", $params);
   }
 
   // setText
@@ -281,7 +281,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['text'] = $text;
 
-    return $this->post("setText", $params)
+    return $this->post("setText", $params);
   }
 
   // getHTML
@@ -293,7 +293,7 @@ class EtherpadLiteClient {
       $params['rev'] = $rev;
     }
 
-    return $this->get("getHTML", $params)
+    return $this->get("getHTML", $params);
   }
 
   // setHTML
@@ -303,7 +303,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['html'] = $html;
 
-    return $this->post("setHTML", $params)
+    return $this->post("setHTML", $params);
   }
 
   // getAttributePool
@@ -312,7 +312,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getAttributePool", $params)
+    return $this->get("getAttributePool", $params);
   }
 
   // getRevisionsCount
@@ -321,7 +321,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getRevisionsCount", $params)
+    return $this->get("getRevisionsCount", $params);
   }
 
   // getSavedRevisionsCount
@@ -330,7 +330,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getSavedRevisionsCount", $params)
+    return $this->get("getSavedRevisionsCount", $params);
   }
 
   // listSavedRevisions
@@ -339,7 +339,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("listSavedRevisions", $params)
+    return $this->get("listSavedRevisions", $params);
   }
 
   // saveRevision
@@ -349,7 +349,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['rev'] = $rev;
 
-    return $this->post("saveRevision", $params)
+    return $this->post("saveRevision", $params);
   }
 
   // getRevisionChangeset
@@ -361,7 +361,7 @@ class EtherpadLiteClient {
       $params['rev'] = $rev;
     }
 
-    return $this->get("getRevisionChangeset", $params)
+    return $this->get("getRevisionChangeset", $params);
   }
 
   // getLastEdited
@@ -370,7 +370,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getLastEdited", $params)
+    return $this->get("getLastEdited", $params);
   }
 
   // deletePad
@@ -379,7 +379,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->post("deletePad", $params)
+    return $this->post("deletePad", $params);
   }
 
   // copyPad
@@ -392,7 +392,7 @@ class EtherpadLiteClient {
       $params['force'] = $force;
     }
 
-    return $this->post("copyPad", $params)
+    return $this->post("copyPad", $params);
   }
 
   // movePad
@@ -405,7 +405,7 @@ class EtherpadLiteClient {
       $params['force'] = $force;
     }
 
-    return $this->post("movePad", $params)
+    return $this->post("movePad", $params);
   }
 
   // getReadOnlyID
@@ -414,7 +414,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getReadOnlyID", $params)
+    return $this->get("getReadOnlyID", $params);
   }
 
   // getPadID
@@ -423,7 +423,7 @@ class EtherpadLiteClient {
 
     $params['roID'] = $roID;
 
-    return $this->get("getPadID", $params)
+    return $this->get("getPadID", $params);
   }
 
   // setPublicStatus
@@ -433,7 +433,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['publicStatus'] = $publicStatus;
 
-    return $this->post("setPublicStatus", $params)
+    return $this->post("setPublicStatus", $params);
   }
 
   // getPublicStatus
@@ -442,7 +442,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getPublicStatus", $params)
+    return $this->get("getPublicStatus", $params);
   }
 
   // setPassword
@@ -452,7 +452,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['password'] = $password;
 
-    return $this->post("setPassword", $params)
+    return $this->post("setPassword", $params);
   }
 
   // isPasswordProtected
@@ -461,7 +461,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("isPasswordProtected", $params)
+    return $this->get("isPasswordProtected", $params);
   }
 
   // listAuthorsOfPad
@@ -470,7 +470,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("listAuthorsOfPad", $params)
+    return $this->get("listAuthorsOfPad", $params);
   }
 
   // padUsersCount
@@ -479,7 +479,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("padUsersCount", $params)
+    return $this->get("padUsersCount", $params);
   }
 
   // getAuthorName
@@ -488,7 +488,7 @@ class EtherpadLiteClient {
 
     $params['authorID'] = $authorID;
 
-    return $this->get("getAuthorName", $params)
+    return $this->get("getAuthorName", $params);
   }
 
   // padUsers
@@ -497,7 +497,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("padUsers", $params)
+    return $this->get("padUsers", $params);
   }
 
   // sendClientsMessage
@@ -507,7 +507,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['msg'] = $msg;
 
-    return $this->post("sendClientsMessage", $params)
+    return $this->post("sendClientsMessage", $params);
   }
 
   // listAllGroups
@@ -515,7 +515,7 @@ class EtherpadLiteClient {
     $params = array();
 
 
-    return $this->get("listAllGroups", $params)
+    return $this->get("listAllGroups", $params);
   }
 
   // checkToken
@@ -523,7 +523,7 @@ class EtherpadLiteClient {
     $params = array();
 
 
-    return $this->post("checkToken", $params)
+    return $this->post("checkToken", $params);
   }
 
   // getChatHistory
@@ -538,7 +538,7 @@ class EtherpadLiteClient {
       $params['end'] = $end;
     }
 
-    return $this->get("getChatHistory", $params)
+    return $this->get("getChatHistory", $params);
   }
 
   // getChatHead
@@ -547,7 +547,7 @@ class EtherpadLiteClient {
 
     $params['padID'] = $padID;
 
-    return $this->get("getChatHead", $params)
+    return $this->get("getChatHead", $params);
   }
 
   // restoreRevision
@@ -557,7 +557,7 @@ class EtherpadLiteClient {
     $params['padID'] = $padID;
     $params['rev'] = $rev;
 
-    return $this->post("restoreRevision", $params)
+    return $this->post("restoreRevision", $params);
   }
 
 

@@ -21,10 +21,10 @@ The full-stack tests can be run by running `make test`.
  
 The test suite makes the following assumptions:
 
-    * A copy of Etherpad is running at http://localhost:9001
-    * The data in the running instance of Etherpad can be destroyed
-    * The APIKey for the running instance is 'dcf118bfc58cc69cdf3ae870071f97149924f5f5a9a4a552fd2921b40830aaae'
-    * PHPUnit has been installed with [Composer](https://getcomposer.org/) (run `make dev-deps`)
+* A copy of Etherpad is running at http://localhost:9001
+* The data in the running instance of Etherpad can be destroyed
+* The APIKey for the running instance is 'dcf118bfc58cc69cdf3ae870071f97149924f5f5a9a4a552fd2921b40830aaae'
+* PHPUnit has been installed with [Composer](https://getcomposer.org/) (run `make dev-deps`)
 
 # License
 

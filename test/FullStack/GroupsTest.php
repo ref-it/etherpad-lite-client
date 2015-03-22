@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../../etherpad-lite-client.php';
+require_once __DIR__.'/../../etherpad-lite-client.php';
 
 class GroupsTest extends \PHPUnit_Framework_TestCase {
 

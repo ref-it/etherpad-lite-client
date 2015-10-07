@@ -38,8 +38,16 @@ class EtherpadLiteClient {
     return $this->call($function, $arguments, 'POST');
   }
 
+  protected function convertBools($candidate){
+    if (is_bool($candidate)){
+      return $candidate? "true" : "false";
+    }
+    return $candidate;
+  }
+
   protected function call($function, array $arguments = array(), $method = 'GET'){
     $arguments['apikey'] = $this->apiKey;
+    $arguments = array_map(array($this, 'convertBools'), $arguments);
     $arguments = http_build_query($arguments, '', '&');
     $url = $this->baseUrl."/".self::API_VERSION."/".$function;
     if ($method !== 'POST'){

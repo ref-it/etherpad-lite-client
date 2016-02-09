@@ -2,7 +2,9 @@
 // please edit the files in ./tools/templates/ instead of editing this
 // file directly.
 
-class EtherpadLiteClient {
+namespace EtherpadLite;
+
+class Client {
 
   const API_VERSION             = '<?=$version?>';
 
@@ -17,7 +19,7 @@ class EtherpadLiteClient {
   
   public function __construct($apiKey, $baseUrl = null){
     if (strlen($apiKey) < 1){
-      throw new InvalidArgumentException("[{$apiKey}] is not a valid API key");
+      throw new \InvalidArgumentException("[{$apiKey}] is not a valid API key");
     }
     $this->apiKey  = $apiKey;
 
@@ -25,7 +27,7 @@ class EtherpadLiteClient {
       $this->baseUrl = $baseUrl;
     }
     if (!filter_var($this->baseUrl, FILTER_VALIDATE_URL)){
-      throw new InvalidArgumentException("[{$this->baseUrl}] is not a valid URL");
+      throw new \InvalidArgumentException("[{$this->baseUrl}] is not a valid URL");
     }
   }
 
@@ -75,22 +77,22 @@ class EtherpadLiteClient {
     }
     
     if(!$result){
-      throw new UnexpectedValueException("Empty or No Response from the server");
+      throw new \UnexpectedValueException("Empty or No Response from the server");
     }
     
     $result = json_decode($result);
     if ($result === null){
-      throw new UnexpectedValueException("JSON response could not be decoded");
+      throw new \UnexpectedValueException("JSON response could not be decoded");
     }
     return $this->handleResult($result);
   }
 
   protected function handleResult($result){
     if (!isset($result->code)){
-      throw new RuntimeException("API response has no code");
+      throw new \RuntimeException("API response has no code");
     }
     if (!isset($result->message)){
-      throw new RuntimeException("API response has no message");
+      throw new \RuntimeException("API response has no message");
     }
     if (!isset($result->data)){
       $result->data = null;
@@ -101,13 +103,13 @@ class EtherpadLiteClient {
         return $result->data;
       case self::CODE_INVALID_PARAMETERS:
       case self::CODE_INVALID_API_KEY:
-        throw new InvalidArgumentException($result->message);
+        throw new \InvalidArgumentException($result->message);
       case self::CODE_INTERNAL_ERROR:
-        throw new RuntimeException($result->message);
+        throw new \RuntimeException($result->message);
       case self::CODE_INVALID_FUNCTION:
-        throw new BadFunctionCallException($result->message);
+        throw new \BadFunctionCallException($result->message);
       default:
-        throw new RuntimeException("An unexpected error occurred whilst handling the response");
+        throw new \RuntimeException("An unexpected error occurred whilst handling the response");
     }
   }
 

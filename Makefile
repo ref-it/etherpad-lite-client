@@ -5,6 +5,6 @@ dev-deps:
 	composer install --dev
 
 client:
-	php ./tools/generate.php > ./etherpad-lite-client.php
+	php ./tools/generate.php > ./EtherpadLite/Client.php
 
 .PHONY: all test clean

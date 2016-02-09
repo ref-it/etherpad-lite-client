@@ -4,13 +4,19 @@ Etherpad Lite is a collaborative editor provided by the Etherpad Foundation (htt
 
 ## Basic Usage
 
-You only need to include the 'etherpad-lite-client.php' file in your project. All other files
-in the project are for supporting the generation of the client.
+Install from packagist:
+
+```
+composer require tomnomnom/etherpad-lite-client
+```
+
+A legacy `etherpad-lite-client.php` file is included for people who are unwilling/unable to switch to the new
+namespaced version, but it is deprecated and will be removed in future versions.
 
 ```php
 <?php
-include 'etherpad-lite-client.php';
-$instance = new EtherpadLiteClient('EtherpadFTW', 'http://beta.etherpad.org/api');
+require 'vendor/autoload.php';
+$instance = new EtherpadLite\Client('EtherpadFTW', 'http://beta.etherpad.org/api');
 $revisionCount = $instance->getRevisionsCount('testPad');
 $revisionCount = $revisionCount->revisions;
 echo "Pad has $revisionCount revisions";
@@ -26,6 +32,8 @@ The test suite makes the following assumptions:
 * The APIKey for the running instance is 'dcf118bfc58cc69cdf3ae870071f97149924f5f5a9a4a552fd2921b40830aaae'
 * PHPUnit has been installed with [Composer](https://getcomposer.org/) (run `make dev-deps`)
 
+A Dockerfile is provided in `tools/testcontainer` to ease setup of a test instance.
+
 # License
 
 Apache License
@@ -34,3 +42,4 @@ Apache License
 
 The Etherpad Foundation also provides a jQuery plugin for Etherpad Lite.  
 This can be found at http://etherpad.org/2011/08/14/etherpad-lite-jquery-plugin/
+

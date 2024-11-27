@@ -1,7 +1,7 @@
 <?php
 class EtherpadLiteClient {
 
-    const API_VERSION             = "1.2.11";
+    const API_VERSION             = "3.0.2";
 
     const CODE_OK                 = 0;
     const CODE_INVALID_PARAMETERS = 1;
@@ -13,7 +13,7 @@ class EtherpadLiteClient {
     protected $baseUrl = "http://localhost:9001/api";
   
     public function __construct($apiKey, $baseUrl = null) {
-        if (strlen($apiKey) < 1){
+        if (strlen($apiKey) < 1) {
           throw new InvalidArgumentException("[{$apiKey}] is not a valid API key");
         }
         $this->apiKey  = $apiKey;
@@ -33,8 +33,8 @@ class EtherpadLiteClient {
         return $this->call($function, $arguments, 'POST');
     }
 
-    protected function convertBools($candidate){
-        if (is_bool($candidate)){
+    protected function convertBools($candidate) {
+        if (is_bool($candidate)) {
           return $candidate? "true" : "false";
         }
         return $candidate;
@@ -130,14 +130,14 @@ class EtherpadLiteClient {
     }
 
     // listAllPads
-    public function listAllPads(){
+    public function listAllPads() {
         $params = [];
 
         return $this->get("listAllPads", $params);
     }
 
     // createDiffHTML
-    public function createDiffHTML($padID, $startRev, $endRev){
+    public function createDiffHTML($padID, $startRev, $endRev) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -148,11 +148,11 @@ class EtherpadLiteClient {
     }
 
     // createPad
-    public function createPad($padID, $text = null){
+    public function createPad($padID, $text = null) {
         $params = [];
 
         $params['padID'] = $padID;
-        if (isset($text)){
+        if (isset($text)) {
             $params['text'] = $text;
         }
 
@@ -160,12 +160,12 @@ class EtherpadLiteClient {
     }
 
     // createGroupPad
-    public function createGroupPad($groupID, $padName, $text = null){
+    public function createGroupPad($groupID, $padName, $text = null) {
         $params = [];
 
         $params['groupID'] = $groupID;
         $params['padName'] = $padName;
-        if (isset($text)){
+        if (isset($text)) {
             $params['text'] = $text;
         }
 
@@ -173,7 +173,7 @@ class EtherpadLiteClient {
     }
 
     // createAuthor
-    public function createAuthor($name = null){
+    public function createAuthor($name = null) {
         $params = [];
 
         if (isset($name)) {
@@ -184,11 +184,11 @@ class EtherpadLiteClient {
     }
 
     // createAuthorIfNotExistsFor
-    public function createAuthorIfNotExistsFor($authorMapper, $name = null){
+    public function createAuthorIfNotExistsFor($authorMapper, $name = null) {
         $params = [];
 
         $params['authorMapper'] = $authorMapper;
-        if (isset($name)){
+        if (isset($name)) {
             $params['name'] = $name;
         }
 
@@ -196,7 +196,7 @@ class EtherpadLiteClient {
     }
 
     // listPadsOfAuthor
-    public function listPadsOfAuthor($authorID){
+    public function listPadsOfAuthor($authorID) {
         $params = [];
 
         $params['authorID'] = $authorID;
@@ -205,7 +205,7 @@ class EtherpadLiteClient {
     }
 
     // createSession
-    public function createSession($groupID, $authorID, $validUntil){
+    public function createSession($groupID, $authorID, $validUntil) {
         $params = [];
     
         $params['groupID'] = $groupID;
@@ -216,7 +216,7 @@ class EtherpadLiteClient {
     }
 
     // deleteSession
-    public function deleteSession($sessionID){
+    public function deleteSession($sessionID) {
         $params = [];
 
         $params['sessionID'] = $sessionID;
@@ -225,7 +225,7 @@ class EtherpadLiteClient {
     }
 
     // getSessionInfo
-    public function getSessionInfo($sessionID){
+    public function getSessionInfo($sessionID) {
         $params = [];
 
         $params['sessionID'] = $sessionID;
@@ -234,7 +234,7 @@ class EtherpadLiteClient {
     }
 
     // listSessionsOfGroup
-    public function listSessionsOfGroup($groupID){
+    public function listSessionsOfGroup($groupID) {
         $params = [];
 
         $params['groupID'] = $groupID;
@@ -243,7 +243,7 @@ class EtherpadLiteClient {
     }
 
     // listSessionsOfAuthor
-    public function listSessionsOfAuthor($authorID){
+    public function listSessionsOfAuthor($authorID) {
         $params = [];
 
         $params['authorID'] = $authorID;
@@ -252,11 +252,11 @@ class EtherpadLiteClient {
     }
 
     // getText
-    public function getText($padID, $rev = null){
+    public function getText($padID, $rev = null) {
         $params = [];
 
         $params['padID'] = $padID;
-        if (isset($rev)){
+        if (isset($rev)) {
             $params['rev'] = $rev;
         }
 
@@ -264,7 +264,7 @@ class EtherpadLiteClient {
     }
 
     // setText
-    public function setText($padID, $text){
+    public function setText($padID, $text) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -274,11 +274,11 @@ class EtherpadLiteClient {
     }
 
     // getHTML
-    public function getHTML($padID, $rev = null){
+    public function getHTML($padID, $rev = null) {
         $params = [];
 
         $params['padID'] = $padID;
-        if (isset($rev)){
+        if (isset($rev)) {
             $params['rev'] = $rev;
         }
 
@@ -286,7 +286,7 @@ class EtherpadLiteClient {
     }
 
     // setHTML
-    public function setHTML($padID, $html){
+    public function setHTML($padID, $html) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -296,7 +296,7 @@ class EtherpadLiteClient {
     }
 
     // getAttributePool
-    public function getAttributePool($padID){
+    public function getAttributePool($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -305,7 +305,7 @@ class EtherpadLiteClient {
     }
 
     // getRevisionsCount
-    public function getRevisionsCount($padID){
+    public function getRevisionsCount($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -314,7 +314,7 @@ class EtherpadLiteClient {
     }
 
     // getSavedRevisionsCount
-    public function getSavedRevisionsCount($padID){
+    public function getSavedRevisionsCount($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -323,7 +323,7 @@ class EtherpadLiteClient {
     }
 
     // listSavedRevisions
-    public function listSavedRevisions($padID){
+    public function listSavedRevisions($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -332,7 +332,7 @@ class EtherpadLiteClient {
     }
 
     // saveRevision
-    public function saveRevision($padID, $rev){
+    public function saveRevision($padID, $rev) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -342,11 +342,11 @@ class EtherpadLiteClient {
     }
 
     // getRevisionChangeset
-    public function getRevisionChangeset($padID, $rev = null){
+    public function getRevisionChangeset($padID, $rev = null) {
         $params = [];
 
         $params['padID'] = $padID;
-        if (isset($rev)){
+        if (isset($rev)) {
         $params['rev'] = $rev;
         }
 
@@ -354,7 +354,7 @@ class EtherpadLiteClient {
     }
 
     // getLastEdited
-    public function getLastEdited($padID){
+    public function getLastEdited($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -363,7 +363,7 @@ class EtherpadLiteClient {
     }
 
     // deletePad
-    public function deletePad($padID){
+    public function deletePad($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -372,12 +372,12 @@ class EtherpadLiteClient {
     }
 
     // copyPad
-    public function copyPad($sourceID, $destinationID, $force = null){
+    public function copyPad($sourceID, $destinationID, $force = null) {
         $params = [];
 
         $params['sourceID'] = $sourceID;
         $params['destinationID'] = $destinationID;
-        if (isset($force)){
+        if (isset($force)) {
             $params['force'] = $force;
         }
 
@@ -385,12 +385,12 @@ class EtherpadLiteClient {
     }
 
     // movePad
-    public function movePad($sourceID, $destinationID, $force = null){
+    public function movePad($sourceID, $destinationID, $force = null) {
         $params = [];
 
         $params['sourceID'] = $sourceID;
         $params['destinationID'] = $destinationID;
-        if (isset($force)){
+        if (isset($force)) {
             $params['force'] = $force;
         }
 
@@ -398,7 +398,7 @@ class EtherpadLiteClient {
     }
 
     // getReadOnlyID
-    public function getReadOnlyID($padID){
+    public function getReadOnlyID($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -407,7 +407,7 @@ class EtherpadLiteClient {
     }
 
     // getPadID
-    public function getPadID($roID){
+    public function getPadID($roID) {
         $params = [];
 
         $params['roID'] = $roID;
@@ -416,7 +416,7 @@ class EtherpadLiteClient {
     }
 
     // setPublicStatus
-    public function setPublicStatus($padID, $publicStatus){
+    public function setPublicStatus($padID, $publicStatus) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -426,7 +426,7 @@ class EtherpadLiteClient {
     }
 
     // getPublicStatus
-    public function getPublicStatus($padID){
+    public function getPublicStatus($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -435,7 +435,7 @@ class EtherpadLiteClient {
     }
 
     // setPassword
-    public function setPassword($padID, $password){
+    public function setPassword($padID, $password) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -445,7 +445,7 @@ class EtherpadLiteClient {
     }
 
     // isPasswordProtected
-    public function isPasswordProtected($padID){
+    public function isPasswordProtected($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -454,7 +454,7 @@ class EtherpadLiteClient {
     }
 
     // listAuthorsOfPad
-    public function listAuthorsOfPad($padID){
+    public function listAuthorsOfPad($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -463,7 +463,7 @@ class EtherpadLiteClient {
     }
 
     // padUsersCount
-    public function padUsersCount($padID){
+    public function padUsersCount($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -472,7 +472,7 @@ class EtherpadLiteClient {
     }
 
     // getAuthorName
-    public function getAuthorName($authorID){
+    public function getAuthorName($authorID) {
         $params = [];
 
         $params['authorID'] = $authorID;
@@ -481,7 +481,7 @@ class EtherpadLiteClient {
     }
 
     // padUsers
-    public function padUsers($padID){
+    public function padUsers($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -490,7 +490,7 @@ class EtherpadLiteClient {
     }
 
     // sendClientsMessage
-    public function sendClientsMessage($padID, $msg){
+    public function sendClientsMessage($padID, $msg) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -500,7 +500,7 @@ class EtherpadLiteClient {
     }
 
     // listAllGroups
-    public function listAllGroups(){
+    public function listAllGroups() {
         $params = [];
 
 
@@ -508,7 +508,7 @@ class EtherpadLiteClient {
     }
 
     // checkToken
-    public function checkToken(){
+    public function checkToken() {
         $params = [];
 
 
@@ -516,14 +516,14 @@ class EtherpadLiteClient {
     }
 
     // getChatHistory
-    public function getChatHistory($padID, $start = null, $end = null){
+    public function getChatHistory($padID, $start = null, $end = null) {
         $params = [];
 
         $params['padID'] = $padID;
-        if (isset($start)){
+        if (isset($start)) {
             $params['start'] = $start;
         }
-        if (isset($end)){
+        if (isset($end)) {
             $params['end'] = $end;
         }
 
@@ -531,7 +531,7 @@ class EtherpadLiteClient {
     }
 
     // getChatHead
-    public function getChatHead($padID){
+    public function getChatHead($padID) {
         $params = [];
 
         $params['padID'] = $padID;
@@ -540,7 +540,7 @@ class EtherpadLiteClient {
     }
 
     // restoreRevision
-    public function restoreRevision($padID, $rev){
+    public function restoreRevision($padID, $rev) {
         $params = [];
 
         $params['padID'] = $padID;

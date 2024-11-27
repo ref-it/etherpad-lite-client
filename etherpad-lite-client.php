@@ -1,7 +1,7 @@
 <?php
 class EtherpadLiteClient {
 
-    const API_VERSION             = "3.0.2";
+    const API_VERSION             = "1.3.0";
 
     const CODE_OK                 = 0;
     const CODE_INVALID_PARAMETERS = 1;
